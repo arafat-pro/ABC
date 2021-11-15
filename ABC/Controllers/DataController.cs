@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ABC.Services;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,11 +9,18 @@ namespace ABC.Controllers
     [ApiController]
     public class DataController : ControllerBase
     {
+        private readonly IDataProcessorService dataProcessorService;
+
+        public DataController(IDataProcessorService dataProcessorService)
+        {
+            this.dataProcessorService = dataProcessorService;
+        }
+
         // GET: api/<DataController>
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new string[] { "value1", "value2" };
+            return this.dataProcessorService.ProcessData();
         }
 
         // GET api/<DataController>/5

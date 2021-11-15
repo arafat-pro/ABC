@@ -13,7 +13,7 @@ namespace ABCTests
     public class DataProcessorServiceTests
     {
         [Fact]
-        public void ShouldCallStorageBroker()
+        public void ShouldConvertRerievedDataToUpperCase()
         {
             //given
             var storageBrokerMock = new Mock<IStorageBroker>();
