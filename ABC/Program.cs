@@ -1,7 +1,13 @@
+using ABC.Brokers;
+using ABC.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddTransient<IStorageBroker, StorageBroker>();
+builder.Services.AddTransient<IDataProcessorService, DataProcessorService>();
 
 var app = builder.Build();
 
