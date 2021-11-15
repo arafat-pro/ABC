@@ -13,7 +13,7 @@ namespace ABC.Services
 
         public List<string> ProcessData()
         {
-            return this.storageBroker.GetAllData();
+            return this.storageBroker.GetAllData().Select(item => item.ToUpper()).ToList();
         }
     }
 }
