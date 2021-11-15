@@ -13,7 +13,7 @@ namespace ABC.Services
 
         public List<string> ProcessData()
         {
-            throw new NotImplementedException();
+            return this.storageBroker.GetAllData();
         }
     }
 }
